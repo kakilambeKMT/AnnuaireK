@@ -1,0 +1,36 @@
+[build]
+command = "npm run build"
+publish = "public"
+
+[build.environment]
+NODE_VERSION = "24"
+
+[functions]
+directory = "netlify/functions"
+node_bundler = "esbuild"
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Permissions-Policy = "geolocation=(self)"
+
+[[headers]]
+for = "/sw.js"
+[headers.values]
+Cache-Control = "no-cache"
+Service-Worker-Allowed = "/"
+
+[[headers]]
+for = "/connexion.html"
+[headers.values]
+Cache-Control = "no-store"
+
+[[headers]]
+for = "/api/*"
+[headers.values]
+Cache-Control = "no-store"
+
+[dev]
+publish = "public"

@@ -1,0 +1,9 @@
+MODULE 1 — INTERFACE DE L’ANNUAIRE K
+
+app/ : sources de l’interface, de la carte, des formulaires et de la connexion.
+public/ : interface PWA déjà compilée, icônes, manifeste et service worker.
+
+Décompressez ce ZIP et le ZIP backend DANS LE MÊME DOSSIER.
+Les fichiers sont complémentaires : aucun fichier applicatif n’est commun aux deux ZIP.
+Ce module seul ne fournit pas les inscriptions partagées.
+Voir DEMARRER-ICI.txt dans le module backend.
