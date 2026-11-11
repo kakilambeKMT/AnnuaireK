@@ -1,0 +1,6 @@
+{
+  "id": "./", "name": "L’annuaire K", "short_name": "Annuaire K", "description": "Des talents, des liens, des possibles. Votre réseau kamite à emporter.",
+  "lang": "fr", "start_url": "./#explorer", "scope": "./", "display": "standalone", "background_color": "#f6f5f0", "theme_color": "#133f36", "categories": ["business", "social", "lifestyle"],
+  "icons": [ {"src":"icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"}, {"src":"icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}],
+  "shortcuts": [{"name":"Explorer les talents","url":"./#explorer","icons":[{"src":"icon-192.png","sizes":"192x192"}]},{"name":"Mon réseau","url":"./#reseau","icons":[{"src":"icon-192.png","sizes":"192x192"}]},{"name":"Match K","url":"./#match","icons":[{"src":"icon-192.png","sizes":"192x192"}]}]
+}

@@ -1,0 +1,3 @@
+L’ANNUAIRE K — VERSION NETLIFY
+Ce dossier contient uniquement l’interface PWA. Pour les inscriptions partagées et l’administration, déployer le pack complet avec ses Netlify Functions et migrations. Activer Netlify Identity avec confirmation d’e-mail et Netlify Database. Ne pas utiliser Netlify Drop pour le backend. Consulter le README du pack complet.
+Un fichier HTML local ne remplace pas les services connectés. Aucun compte ChatGPT requis.

@@ -1,0 +1,37 @@
+L’ANNUAIRE K — DEUX MODULES, UN PROJET NETLIFY
+
+1. Créez un dossier « annuaire-k ».
+2. Décompressez Module-1-Interface.zip ET Module-2-Backend.zip dans ce même dossier.
+   À la racine, vous devez voir :
+   app/
+   public/
+   server/
+   netlify/
+   scripts/
+   tests/
+   package.json
+   package-lock.json
+   netlify.toml
+3. Placez ce dossier dans un dépôt Git, puis importez ce dépôt dans Netlify.
+   La configuration est fournie : commande npm run build ; dossier publié public.
+4. Activez Netlify Identity avec inscription ouverte et confirmation d’e-mail obligatoire.
+5. Vérifiez Netlify Database. Les migrations sont dans netlify/database/migrations.
+6. Déployez et vérifiez /api/health : ready doit être true.
+7. Inscrivez et confirmez les deux comptes fondateurs :
+   kakilambeprod@gmail.com : propriétaire principal.
+   kakikamademia@gmail.com : administrateur.
+   Les deux peuvent nommer des modérateurs après leur première connexion.
+8. Testez une fiche avec un compte membre, puis validez-la depuis l’administration.
+
+OPTION PLUS SIMPLE
+Le fichier Annuaire-K-Deux-modules-assembles.zip contient déjà l’assemblage des deux ZIP.
+Utilisez cet assemblage directement à partir de l’étape 3.
+
+IMPORTANT
+Il s’agit de deux modules de code, pas de deux sites indépendants.
+Ne créez pas deux sites Netlify séparés avec ces ZIP : cette livraison utilise une adresse
+commune pour la connexion, les cookies, l’API et l’interface.
+Un glisser-déposer de public/ dans Netlify Drop n’installe pas le backend.
+L’activation des services et les tests de connexion sur votre compte Netlify restent à faire.
+Aucun mot de passe ni secret n’est inclus. Ne publiez pas server/ comme dossier statique.
+Les détails et limites fonctionnelles sont dans README.md.
