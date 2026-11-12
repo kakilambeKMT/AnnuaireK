@@ -43,3 +43,11 @@ Documentation officielle :
 - https://docs.netlify.com/manage/security/secure-access-to-sites/identity/use-identity-in-functions/
 - https://docs.netlify.com/build/data-and-storage/netlify-database/migrations/
 - https://docs.netlify.com/build/data-and-storage/netlify-database/tooling/
+
+## Mise à jour du 12 novembre 2026 — confort et annonces
+Mode jour sauge grisé, surfaces feutrées, textes agrandis, boutons tactiles et disposition mobile à une colonne. Carte conservée. WhatsApp facultatif sur les fiches et annonces, au format international.
+Annonces gratuites (30 jours), mise en avant (7 jours), Pass Pro (30 jours, renouvellement manuel) et espaces sponsorisés (30 jours). Toutes les demandes sont modérées ; les offres payantes passent par un devis, puis une vérification manuelle du paiement réel par l’un des deux administrateurs. Les annonces sponsorisées sont signalées et classées en priorité. Une annonce publiée peut être retirée, sa référence de paiement est conservée et ne peut pas servir une deuxième fois.
+Les pays ne sont pas restreints : toute l’Afrique francophone peut déposer une demande. Les préférences Mobile Money ne constituent pas une connexion à un opérateur. Aucun paiement automatique, prélèvement récurrent ou réseau publicitaire tiers n’est activé. PayPal prévu pour le propriétaire : kakilambeprod@gmail.com ; l’adresse seule n’active pas une API de paiement. Les administrateurs doivent communiquer des instructions marchandes vérifiées, adaptées au pays et à la devise.
+Le Pass Pro actuel est une présence sponsorisée à durée fixe, pas encore un abonnement avec renouvellement automatique. La publicité rapporte uniquement si des annonceurs achètent effectivement des placements.
+Déploiement : réunir les deux modules dans le même projet Netlify ; configurer Identity (confirmation e-mail obligatoire) et Database, puis exécuter le build. La migration 0002_announcements.sql doit être appliquée avec 0001. Le HTML seul permet l’aperçu ; il n’active pas les services.
+Validation locale : 11 tests automatisés passent, compilation et syntaxe vérifiées. Le navigateur de contrôle n’a pas pu joindre le nouveau serveur local : validation visuelle desktop/mobile et essais sur un vrai projet Netlify restent à effectuer. L’ancien aperçu Sites n’a pas été redéployé.
