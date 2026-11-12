@@ -28,7 +28,7 @@ Les notes, favoris, brouillons de messages et projets d’opportunités restent 
 
 Netlify Identity vérifie la session. Les en-têtes d’identité éventuellement envoyés par un visiteur sont effacés, puis reconstruits uniquement après vérification serveur. Les rôles sont en base, jamais dans les champs du formulaire ni dans une préférence locale. Les administrateurs doivent confirmer leur adresse. Aucun mot de passe ni secret n’est intégré au pack.
 
-La connexion à la base est fournie par Netlify au serveur via le client officiel `@netlify/database`, jamais livrée au navigateur. Les modifications de fiches et de rôles sont protégées contre les requêtes intersites. Les opérations groupées sont transactionnelles. Les API et les pages de connexion ne sont pas mises en cache par le service worker.
+`NETLIFY_DB_URL` est fourni par Netlify au serveur, jamais livré au navigateur. Les modifications de fiches et de rôles sont protégées contre les requêtes intersites. Les opérations groupées sont transactionnelles. Les API et les pages de connexion ne sont pas mises en cache par le service worker.
 
 Les comptes/membres et les données de l’ancienne version Sites ne sont pas transférés automatiquement. Les préférences locales peuvent être importées via la sauvegarde JSON.
 
@@ -69,3 +69,10 @@ Les médias sont conservés avec la fiche dans la base Netlify et servis par une
 - Régie confiance : notes agrégées, alerte à partir de cinq notes de 1–2 étoiles constituant au moins la moitié des avis. Cette alerte ne sanctionne pas automatiquement. Administrateurs seulement : rétrogradation, avertissement public motivé, suspension de 1 à 90 jours, exclusion de la fiche ou levée de mesure. Ces mesures concernent la fiche ; elles ne bannissent pas le compte de connexion. Les propriétaires voient le motif et peuvent transmettre un recours. L’équipe peut réexaminer et lever la mesure. La suspension expire automatiquement à la lecture du catalogue.
 - Migration nouvelle obligatoire : netlify/database/migrations/0003_trust.sql. Conserver les migrations 0001 et 0002. Déployer interface et backend ensemble.
 - Validation : 16 tests passent (rôles, données, médias, assistance, avis, concurrence, sanctions, recours et génération des interfaces). Compilation réussie. Le contrôle visuel réel mobile/desktop reste à effectuer : accès HTTP local précédemment indisponible, ouverture du fichier bloquée par la politique du navigateur. Aucun déploiement de l’ancien aperçu Sites réalisé.
+
+## Extension métiers, notifications et confort mobile — 12 novembre 2026
+Le catalogue couvre désormais 31 familles de métiers : agriculture, construction, transport, finance, immobilier, commerce, médias, droit, formation, santé, industrie, logistique, marketing, ONG, ressources humaines, sécurité, services à domicile, sport, langues, art et recherche, en plus des catégories créatives existantes. Les fiches peuvent choisir toute catégorie validée côté serveur.
+
+Un centre de notifications local est disponible dans l’en-tête. Il affiche les confirmations de brouillon/fiche, décisions de modération et messages de suivi quand l’application les reçoit ; les notifications sont conservées uniquement sur l’appareil et peuvent être consultées depuis la cloche.
+
+Les palettes couvrent maintenant quatre ambiances avec leur variante sombre : sauge, sable, océan et prune. Le choix est mémorisé par navigateur. Les titres, textes, cartes et actions sont centrés sur mobile pour une présence plus vivante et une meilleure lecture au pouce.
