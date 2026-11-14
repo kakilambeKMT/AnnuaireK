@@ -102,3 +102,37 @@ body.dark[data-palette=mist]{--bg:#142126;--surface:#203139;--ink:#edf7f7;--mute
 .palette-dot.mist{background:#cbd7dc}
 .map-person{transition:background .18s ease,transform .18s ease}.map-person:hover{background:var(--soft);transform:translateX(2px)}
 .k-marker>span{background:var(--green);color:var(--bg)}
+/* hard scroll recovery: route changes must never inherit a modal lock */
+html{overflow-x:clip}
+body{overflow-x:clip}
+body:not(.dialog-open){overflow-y:visible!important}
+html:has(body.dialog-open){overflow:hidden}
+/* v14 mobile app shell */
+@media(max-width:760px){
+  body{font-size:15px;min-height:100dvh;padding-bottom:env(safe-area-inset-bottom)}
+  .app-shell{min-height:100dvh}
+  .topbar{position:sticky;top:0;min-height:72px;padding:10px 14px;background:color-mix(in srgb,var(--surface) 96%,transparent);z-index:30}
+  .topbar .breadcrumb{font-size:19px!important;line-height:1.1}
+  .top-actions{gap:6px;justify-content:center;padding-top:2px}
+  .top-actions button{min-height:40px}
+  main{padding:18px 14px calc(112px + env(safe-area-inset-bottom));min-height:calc(100dvh - 72px)}
+  .hero{border-radius:20px;padding:25px 20px;box-shadow:0 10px 30px #163f3520}
+  .surface,.talent,.map-layout,.offer,.bottom-banner{border-radius:18px;box-shadow:0 8px 22px #173f3610}
+  .quick-paths{gap:12px;margin:18px 0 28px}
+  .quick-path{min-height:66px;border-radius:16px;padding:14px}
+  .search-box,.home-search{border-radius:16px}
+  .domain-picker{padding:16px 12px!important;margin-inline:-2px}
+  .domain-scroller{padding-bottom:8px}
+  .mobile-nav{height:72px;padding:7px 6px calc(7px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--surface) 97%,transparent);backdrop-filter:blur(16px);box-shadow:0 -6px 24px #173f3612;z-index:40}
+  .mobile-nav a{min-height:54px;border-radius:14px;gap:3px}
+  .mobile-nav a.active{background:var(--soft)}
+  .mobile-nav svg{width:22px;height:22px}
+  .km-launch{z-index:45;bottom:calc(88px + env(safe-area-inset-bottom));box-shadow:0 10px 28px #173f3640}
+  .toast{z-index:60}
+  .form-actions{gap:12px}
+  .button{min-height:44px}
+}
+@media(max-width:380px){
+  .topbar{min-height:68px}.top-actions{gap:4px}.top-actions .button{padding-inline:9px;font-size:9px}
+  main{padding-inline:11px}.hero h1{font-size:34px}.mobile-nav a{font-size:9px}
+}
