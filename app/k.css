@@ -164,3 +164,30 @@ body:not(.dialog-open){overflow-y:visible!important}html:has(body.dialog-open){o
 /* v17 admin feedback + action safety */
 [data-platform], [data-trust-admin], [data-ad="review"]{touch-action:manipulation}
 .admin-action-loading{position:relative;opacity:.65;pointer-events:none}.admin-action-loading:after{content:'…';margin-left:5px}.admin-inline-error{border:1px solid var(--orange);color:var(--orange)}
+
+/* v18 : refonte mobile, plus proche d'une vraie application */
+@media(max-width:760px){
+  body{background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 86%,var(--soft)) 100%)}
+  .sidebar{display:none}.app-shell{margin-left:0}.footer{display:none}
+  .topbar{height:auto;min-height:64px;padding:8px 14px;display:grid;grid-template-columns:1fr auto;gap:5px 10px}
+  .breadcrumb{font-size:17px!important;font-weight:750;letter-spacing:-.4px;overflow:hidden;text-overflow:ellipsis}.breadcrumb span{display:none}
+  .top-actions{grid-column:1/-1;grid-row:2;display:flex;justify-content:space-between;gap:6px;padding:0 0 2px;width:100%}
+  .top-actions .connection{order:0;font-size:10px;display:flex;align-items:center}.top-actions .notification-button{order:1}
+  .top-actions [data-comfort]{order:2}.top-actions [data-action=theme]{order:3}.top-actions #account-button{order:4}
+  .top-actions>[data-action=activity]{display:none}.top-actions .button{min-height:38px;padding:8px 11px;font-size:10px}.top-actions .icon-button{width:38px;height:38px;background:var(--soft);border-radius:12px}
+  main{padding:12px 12px calc(104px + env(safe-area-inset-bottom));}
+  .page-intro{display:block;margin:8px 2px 18px}.page-intro h1{font-size:29px;margin:5px 0 8px}.page-intro p{font-size:12px;line-height:1.6}
+  .hero{min-height:0;padding:21px 18px;border-radius:22px;display:block}.hero h1{font-size:34px;letter-spacing:-1.7px;margin:12px 0}.hero p{font-size:12px;line-height:1.65}.hero-art{display:none}.hero-bottom{margin-top:16px;flex-wrap:wrap}
+  .home-search{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px;border-radius:18px;margin:12px 0}.home-search .map-query{grid-column:1/-1}.home-search label{font-size:11px}.home-search input,.home-search select{min-height:46px;font-size:16px;border-radius:12px;padding:10px 11px}.home-search .button{width:100%;min-height:44px;margin:0}
+  .domain-picker{padding:14px 12px!important;border-radius:18px;margin:12px 0}.domain-picker .eyebrow{font-size:10px;margin-bottom:5px}.domain-chip{min-height:44px;font-size:12px}
+  .map-layout{display:flex;flex-direction:column;gap:10px}.map-frame,#talent-map{min-height:320px;height:320px;border-radius:20px;overflow:hidden}.map-list{max-height:none}.map-list h2{font-size:20px;margin:14px 2px 8px}.map-person{min-height:64px;border-radius:14px;padding:10px 12px;background:var(--surface);border:1px solid var(--line);margin-bottom:7px}
+  .section-top{display:block;margin:22px 2px 12px}.section-top h2{font-size:22px}.section-tools{margin-top:10px;justify-content:space-between}.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px;margin:12px -2px 16px}.chips .chip{flex:0 0 auto;min-height:38px}
+  .cards{display:grid;grid-template-columns:1fr;gap:12px}.talent{border-radius:18px;box-shadow:0 7px 20px #173f3610}.talent-cover{height:112px}.talent-body{padding:14px}.talent-title h3{font-size:17px}.talent-desc{font-size:11px;line-height:1.6;min-height:0}.talent-foot .profile-link{font-size:11px;padding:8px 2px}
+  .quick-paths{display:grid;grid-template-columns:1fr;gap:9px}.quick-path{min-height:58px}
+  .bottom-banner{display:block;padding:19px;border-radius:18px}.bottom-banner>.button{margin-top:13px;width:100%}
+  .mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}.mobile-nav a{font-size:9px;min-width:0}.mobile-nav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .km-grid{border-radius:18px}.km-grid aside{max-height:38%!important}.km-list{max-height:190px!important}.km-thread{min-height:330px}.km-messages{min-height:170px}.kmessenger header{padding:2px 2px 10px}.kmessenger footer{font-size:9px}
+}
+@media(min-width:761px){
+  .map-layout{box-shadow:0 16px 40px #173f3612;border-radius:18px;overflow:hidden}.map-frame,#talent-map{border-radius:18px}.map-list{padding:18px;background:var(--surface)}
+}
