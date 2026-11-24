@@ -29,6 +29,35 @@ body.dark[data-palette=plum]{--bg:#2a202a;--surface:#3a2e3b;--ink:#f1e5ef;--mute
 
 @media(max-width:760px){.topbar{align-items:center}.topbar .breadcrumb{width:100%;text-align:center;display:flex;justify-content:center;align-items:center;gap:8px}.topbar .breadcrumb:before{content:'K✳';display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--green);color:var(--bg);font:bold 21px Georgia}.top-actions{justify-content:center;align-items:center}.top-actions .connection{display:inline-flex;order:-1}.top-actions button{margin:0 auto}.hero-bottom,.form-actions,.home-search .button,.map-tools .button{justify-content:center}.hero-bottom .button,.form-actions .button{margin-left:auto;margin-right:auto}.mobile-nav{justify-content:center}.mobile-nav a{flex:0 1 20%;text-align:center}.section-top{align-items:center}.talent-foot{justify-content:center}.talent-foot>*{margin-left:auto;margin-right:auto}}
 
+/* Administration : zones tactiles confortables et recherche toujours visible sur mobile. */
+@media(max-width:760px){
+  .admin-search{position:sticky;top:0;z-index:4;margin:0 -4px 14px;padding:10px 4px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px)}
+  .admin-search input{width:100%;min-height:48px;font-size:16px;border-radius:12px}
+  .admin-search span{display:block;margin-bottom:5px;font-size:12px;font-weight:700;color:var(--muted)}
+  .board>.surface{padding:18px 16px}
+  .board>.surface .button,.board>.surface .text-button{min-height:44px;margin:5px 4px 0 0}
+  .deletion-requests .notice,.surface.space-top .notice{padding:16px}
+  .chips{overflow-x:auto;flex-wrap:nowrap;padding-bottom:5px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+}
+
+/* Confort réseau et accessibilité : l'interface reste utilisable sur appareil lent. */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+body[data-save-data="true"] .talent-cover img,body[data-save-data="true"] .profile-gallery img{filter:saturate(.8);content-visibility:auto}
+.data-saver-banner{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--soft);color:var(--ink);font-size:13px}
+.data-saver-banner button{margin-left:auto}
+
+/* Navigation accessible : contraste et focus visibles même en plein soleil. */
+@media (prefers-contrast: more){
+  :root{--line:#6b756d;--muted:#35443b}
+  .button,.text-button,.icon-button,.chip,.mobile-nav a{border-width:2px}
+  .muted,.form-hint{color:var(--ink)}
+}
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.button,.icon-button,.chip,.mobile-nav a{touch-action:manipulation}
+
 .kmessenger{display:flex;flex-direction:column;min-height:520px}.kmessenger header,.kmessenger footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}.kmessenger footer{justify-content:center;border:0;border-top:1px solid var(--line);padding:12px 0 0;font-size:12px;color:var(--muted)}.kmessenger footer a{color:var(--orange);font-weight:600}.km-grid{display:grid;grid-template-columns:220px 1fr;gap:16px;flex:1;padding:16px 0}.km-grid aside{border-right:1px solid var(--line);padding-right:14px}.km-list{display:grid;gap:6px;margin-top:14px}.km-conversation,.km-member{display:block;width:100%;text-align:left;background:transparent;border:1px solid transparent;border-radius:8px;padding:10px}.km-conversation:hover,.km-conversation.active,.km-member:hover{background:var(--soft);border-color:var(--line)}.km-conversation b,.km-conversation small{display:block}.km-conversation small{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.km-conversation .pill{float:right}.km-new{padding:10px 0}.km-new input,.km-thread textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)}.km-member{margin-top:5px}.km-thread{min-width:0}.km-thread-head{display:flex;align-items:center;gap:15px}.km-thread-head h3{margin:0}.km-messages{height:320px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:10px 0}.km-message{max-width:75%;align-self:flex-start;background:var(--soft);padding:10px 12px;border-radius:12px;margin:0;white-space:pre-wrap}.km-message.mine{align-self:flex-end;background:var(--green);color:var(--bg)}.km-message small{display:block;opacity:.7;font-size:10px;margin-top:4px}.km-thread form{display:flex;gap:8px;align-items:end}.km-launch{position:fixed;right:20px;bottom:86px;z-index:20;width:54px;height:54px;border-radius:50%;background:var(--green);color:var(--bg);font-size:24px;box-shadow:0 8px 24px #0003}.km-launch:hover{transform:translateY(-2px)}
 @media(max-width:760px){.kmessenger{min-height:560px}.km-grid{grid-template-columns:1fr}.km-grid aside{border-right:0;border-bottom:1px solid var(--line);padding:0 0 12px}.km-list{max-height:150px;overflow:auto}.km-messages{height:300px}.km-launch{right:14px;bottom:92px}.km-thread form{flex-direction:column;align-items:stretch}.km-thread form .button{width:100%}}
 
@@ -164,7 +193,7 @@ body:not(.dialog-open){overflow-y:visible!important}html:has(body.dialog-open){o
 /* v17 admin feedback + action safety */
 [data-platform], [data-trust-admin], [data-ad="review"]{touch-action:manipulation}
 .admin-action-loading{position:relative;opacity:.65;pointer-events:none}.admin-action-loading:after{content:'…';margin-left:5px}.admin-inline-error{border:1px solid var(--orange);color:var(--orange)}
-
+.privacy-fields{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;gap:10px 16px;flex-wrap:wrap;background:var(--soft)}.privacy-fields legend{font-weight:700;font-size:12px;padding:0 5px}.privacy-fields .check{font-size:11px;margin:0}
 /* v18 : refonte mobile, plus proche d'une vraie application */
 @media(max-width:760px){
   body{background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 86%,var(--soft)) 100%)}
@@ -185,9 +214,12 @@ body:not(.dialog-open){overflow-y:visible!important}html:has(body.dialog-open){o
   .cards{display:grid;grid-template-columns:1fr;gap:12px}.talent{border-radius:18px;box-shadow:0 7px 20px #173f3610}.talent-cover{height:112px}.talent-body{padding:14px}.talent-title h3{font-size:17px}.talent-desc{font-size:11px;line-height:1.6;min-height:0}.talent-foot .profile-link{font-size:11px;padding:8px 2px}
   .quick-paths{display:grid;grid-template-columns:1fr;gap:9px}.quick-path{min-height:58px}
   .bottom-banner{display:block;padding:19px;border-radius:18px}.bottom-banner>.button{margin-top:13px;width:100%}
-  .mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}.mobile-nav a{font-size:9px;min-width:0}.mobile-nav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);gap:2px}.mobile-nav a{font-size:9px;min-width:0}.mobile-nav a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.external-nav-item{color:var(--orange)!important}
   .km-grid{border-radius:18px}.km-grid aside{max-height:38%!important}.km-list{max-height:190px!important}.km-thread{min-height:330px}.km-messages{min-height:170px}.kmessenger header{padding:2px 2px 10px}.kmessenger footer{font-size:9px}
 }
 @media(min-width:761px){
   .map-layout{box-shadow:0 16px 40px #173f3612;border-radius:18px;overflow:hidden}.map-frame,#talent-map{border-radius:18px}.map-list{padding:18px;background:var(--surface)}
 }
+
+/* Carrefour : échanges de compétences et besoins locaux */
+.kc-page{font-size:1rem}.kc-entry{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-bottom:24px}.kc-entry h2{margin:8px 0}.kc-tabs,.kc-toolbar,.kc-actions{display:flex;flex-wrap:wrap;gap:10px}.kc-tabs{margin:24px 0}.kc-tabs a{padding:12px 18px;border:1px solid var(--line);border-radius:24px;font-weight:600}.kc-tabs a[aria-current],.kc-page button[aria-pressed=true]{background:var(--green);color:var(--bg)}.kc-principle{padding:24px;background:var(--soft);border-radius:16px;display:grid;gap:8px;margin:20px 0}.kc-principle b{font-size:1.25rem}.kc-toolbar{margin:20px 0}.kc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.kc-card{min-width:0;display:flex;flex-direction:column;gap:12px}.kc-card h2{font-size:1.4rem;margin:0}.kc-card p{margin:0}.kc-description{white-space:pre-wrap;overflow-wrap:anywhere}.kc-meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.9rem}.kc-card .kc-actions{margin-top:auto}.kc-card dt{font-weight:600}.kc-card dd{margin:0 0 10px;overflow-wrap:anywhere}.kc-search{margin:20px 0}.kc-balance{margin:20px 0}.kc-balance strong{font-size:1.5rem}.kc-consent{display:flex;gap:12px;align-items:flex-start;margin:20px 0}.kc-error,#kc-status{color:var(--ink);font-weight:600}.kc-page .button,#dialog form[id^=kc-] .button{min-height:44px;font-size:1rem}.kc-page input,#dialog form[id^=kc-] input,#dialog form[id^=kc-] textarea,#dialog form[id^=kc-] select{font-size:1rem}.kc-page .pill{font-size:.875rem}#dialog form[id^=kc-]{font-size:1rem}.sidebar #navigation{overflow-y:auto;min-height:0}.kc-card :is(p,dd){overflow-wrap:anywhere}@media(max-width:760px){.kc-grid{grid-template-columns:1fr}.kc-entry{display:block}.kc-entry .kc-actions{margin-top:18px}.kc-tabs a{flex:1;text-align:center}.kc-card{text-align:left}.kc-actions .button{flex-grow:1}.kc-principle{padding:18px}}
